@@ -1,0 +1,50 @@
+<div class="col-12">
+  <div class="md-form">
+    <input
+      type="text"
+      name="searchBar"
+      id="searchBar"
+      class="form-control searchBar"
+      placeholder="Search"
+      [(ngModel)]="searchBar"
+      (input)="onSearch($event.target.value)"
+      [attr.disabled]="isLoading ? '' : null"
+    />
+  </div>
+</div>
+<br />
+<div class="row">
+  <div *ngIf="!articles" class="col-12 text-color">No Articles Found...</div>
+
+  <div
+    *ngFor="
+      let article of articles
+        | paginate: { itemsPerPage: 20, currentPage: startPage };
+      let i = index
+    "
+    class="col-12 col-md-6 mb-4 article"
+  >
+    <div class="card p-2 h-100">
+      <p class="h-75">
+        {{ i + 1 * (10 * (startPage - 1)) + 1 }}.
+        <a href="{{ article.url }}" class="articleLink" target="_window">
+          {{ article.title }}
+        </a>
+      </p>
+      <span>
+        Author: <a>{{ article.by }}</a>
+      </span>
+    </div>
+  </div>
+
+  <div class="col-12 text-align-right mt-4">
+    <pagination-controls
+      (pageChange)="startPage = $event"
+    ></pagination-controls>
+  </div>
+  <div *ngIf="isLoading" class="col-12 text-center" style="top: 75%">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

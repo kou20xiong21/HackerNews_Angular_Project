@@ -17,3 +17,14 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+
+.nav-bg-coler {
+  background-color: lightblue;
+}
+
+.nav-text-color {
+  text-emphasis-color: white;
+  font-family: Calibri;
+  font-weight: bold;
+}

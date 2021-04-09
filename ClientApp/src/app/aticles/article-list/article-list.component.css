@@ -7,3 +7,7 @@
 .text-align-right {
   text-align: right;
 }
+
+.card-bg-color {
+  background-color: lightgray;
+}

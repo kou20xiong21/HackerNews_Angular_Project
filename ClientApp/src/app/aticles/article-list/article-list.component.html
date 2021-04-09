@@ -14,7 +14,7 @@
 </div>
 <br />
 <div class="row">
-  <div *ngIf="!articles" class="col-12 text-color">No Articles Found...</div>
+  <div *ngIf="!articles && isloading" class="col-12 text-color">No Articles Found...</div>
 
   <div
     *ngFor="
@@ -24,7 +24,7 @@
     "
     class="col-12 col-md-6 mb-4 article"
   >
-    <div class="card p-2 h-100">
+    <div class="card p-2 h-100 card-bg-color" >
       <p class="h-75">
         {{ i + 1 * (10 * (startPage - 1)) + 1 }}.
         <a href="{{ article.url }}" class="articleLink" target="_window">

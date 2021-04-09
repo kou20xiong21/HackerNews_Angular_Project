@@ -24,15 +24,18 @@
     "
     class="col-12 col-md-6 mb-4 article"
   >
-    <div class="card p-2 h-100 card-bg-color" >
-      <p class="h-75">
-        {{ i + 1 * (10 * (startPage - 1)) + 1 }}.
+    <div class="card p-2 h-100 card-bg-color">
+      {{ i + 1 * (10 * (startPage - 1)) + 1 }}.
+      <span *ngIf="article.url" class="h-75">
         <a href="{{ article.url }}" class="articleLink" target="_window">
           {{ article.title }}
         </a>
-      </p>
+      </span>
+      <span *ngIf="!article.url" class="h-75">
+        {{ article.title }}
+      </span>
       <span>
-        Author: <a>{{ article.by }}</a>
+        Author: {{ article.by }}
       </span>
     </div>
   </div>
